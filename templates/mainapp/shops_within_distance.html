@@ -1,0 +1,18 @@
+{% comment %} {% extends "base.html" %} {% endcomment %}
+
+{% block content %}
+  <h1>Shops within {{ distance }} km of your location</h1>
+  {% if entries %}
+    <ul>
+      {% for shop in entries %}
+        <li>
+          <h2>{{ shop.name }}</h2>
+          <p>{{ shop.address }}</p>
+          {% comment %} <p>Distance: {{ shop.distance_on_sphere|floatformat:2 }} km</p> {% endcomment %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No shops found within {{ distance }} km of your location.</p>
+  {% endif %}
+{% endblock %}

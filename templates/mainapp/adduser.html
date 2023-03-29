@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+ <body>
+    <h2>Add user's details</h2>
+    <form method="POST">{% csrf_token %}
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="latitude" placeholder="latitude">
+        <input type="text" name="longitude" placeholder="longitude">
+        <input type="text" name="distance" placeholder="distance">
+        <input type="submit" value="save">
+    </form>
+</body> 
+
+
+</html>
