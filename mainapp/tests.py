@@ -2,12 +2,8 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from .models import Shop, User
 import json
-
-
 # Model Tests
 class ModelTests(TestCase):
-   
-
    def setUp(self):
         self.client = Client()
         self.home_page_url = reverse('view')
@@ -19,10 +15,25 @@ class ModelTests(TestCase):
         )
         self.add_shops_url = reverse('add')
         self.add_users_url = reverse('adduser')
-        self.shop1 = Shop.objects.create(name='shop1',
-           latitude='0.788',
-           longitude='-8.9000',
-          address='electronic city')
+     #    self.update_url = reverse('view', args=[self.shop1.pk])
+#    def test_update_shop(self):
+#         updated_data = {'name':'shop1',
+#            'latitude':'0.788',
+#            'longitude':'-8.9000',
+#           'address':'ecoworld'}
+#         response = self.client.post(self.update_url, data=updated_data)
+#         self.assertEqual(response.status_code, 302)
+#         self.shop1.refresh_from_db()
+#         self.assertEqual(self.shop1.address, 'ecoworld')
+
+     #    self.shop1 = Shop.objects.create(name='shop1',
+     #       latitude='0.788',
+     #       longitude='-8.9000',
+     #      address='electronic city')
+     #    self.shop_delete = Shop.objects.create(name='shop2',
+     #       latitude='0.788',
+     #       longitude='-8.9000',
+     #      address='electronic city')
    
 
    def test_view_get(self):
@@ -47,4 +58,12 @@ class ModelTests(TestCase):
       self.assertTemplateUsed(response, 'mainapp/shops_within_distance.html')
 
 
+
+   def test_delete(self):
+        initial_count = Shop.objects.count()
+     #    shop_delete = Shop.objects.get(pk=self.shop_delete.pk)
+        self.shop1.delete()
+        final_count = Shop.objects.count()
+        self.assertEqual(initial_count - 1, final_count)
+        self.assertFalse(Shop.objects.filter(name='shop1').exists())
 

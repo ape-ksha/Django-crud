@@ -12,7 +12,7 @@ from rest_framework import serializers
 class SerializeShop(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Shop
-        fields = ('id', 'name', 'latitude', 'longitude', 'address')
+        fields = ('shop_id', 'name', 'latitude', 'longitude', 'address')
 class SerializeUser(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
