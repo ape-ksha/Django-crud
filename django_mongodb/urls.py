@@ -19,8 +19,8 @@ from mainapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', view),
-    path('add/', add),
-    path('adduser/', add_user),
+    path('', view, name='view'),
+    path('add/', add, name='add'),
+    path('adduser/', add_user, name='adduser'),
     path('', include('mainapp.urls')),
 ]
