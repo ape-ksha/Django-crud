@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import os
+from mongoengine import connect
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -150,3 +152,11 @@ MONGODB_DATABASES = {
         'URI': 'mongodb://mongodb:27017',
     }
 }
+
+
+
+mongo_db_name = os.environ.get('shoplocator')
+mongo_uri = os.environ.get('mongodb://mongodb:27017')
+
+connect(db=mongo_db_name, host=mongo_uri)
+
