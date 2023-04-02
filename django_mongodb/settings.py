@@ -92,11 +92,11 @@ WSGI_APPLICATION = 'django_mongodb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'shoplocator',
+        'NAME': 'test',
         'CLIENT': {
-            'host': 'mongodb://mongodb:27017',
-            'username': 'root',
-            'password': 'mongoadmin',
+            'host': 'mongodb://mongo:PEl8B92GQ9Ztw7OkNOVm@containers-us-west-180.railway.app:5624',
+            'username': 'mongo',
+            'password': 'PEl8B92GQ9Ztw7OkNOVm',
             'authSource': 'admin',
             'authMechanism': 'SCRAM-SHA-1',
         }
