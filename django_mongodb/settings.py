@@ -143,3 +143,10 @@ STATICFILES_DIRS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MONGODB_DATABASES = {
+    'default': {
+        'NAME': 'shoplocator',
+        'URI': 'mongodb://mongodb:27017',
+    }
+}
