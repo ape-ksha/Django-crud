@@ -146,17 +146,19 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MONGODB_DATABASES = {
-    'default': {
-        'NAME': 'shoplocator',
-        'URI': 'mongodb://mongodb:27017',
-    }
-}
+# MONGODB_DATABASES = {
+#     'default': {
+#         'NAME': 'shoplocator',
+#         'URI': 'mongodb://mongodb:27017',
+#     }
+# }
 
 
 
-mongo_db_name = os.environ.get('shoplocator')
-mongo_uri = os.environ.get('mongodb://mongodb:27017')
+# mongo_db_name = os.environ.get('shoplocator')
+# mongo_uri = os.environ.get('mongodb://mongodb:27017')
 
-connect(db=mongo_db_name, host=mongo_uri)
+# connect(db=mongo_db_name, host=mongo_uri)
+
+CSRF_TRUSTED_ORIGINS = ['https://django-crud-production-5aa2.up.railway.app/']
 
