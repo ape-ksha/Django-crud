@@ -12,11 +12,11 @@ services:
     #   - ./init-db:/docker-entrypoint-initdb.d
     #   - ./data-db:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_USERNAME: mongo
       MONGO_INITDB_ROOT_PASSWORD: mongoadmin
-      MONGO_INITDB_DATABASE: shoplocator
+      MONGO_INITDB_DATABASE: test
     ports:
-      - 27017:27017
+      - 5624:5624
 
 
 

@@ -94,7 +94,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'test',
         'CLIENT': {
-            'host': 'mongodb://mongo:PEl8B92GQ9Ztw7OkNOVm@containers-us-west-180.railway.app:5624',
+            'host': 'containers-us-west-180.railway.app',
             'username': 'mongo',
             'password': 'PEl8B92GQ9Ztw7OkNOVm',
             'authSource': 'admin',
