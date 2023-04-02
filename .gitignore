@@ -3,4 +3,5 @@
 __pycache__
 data-db
 init-db
+.env
 

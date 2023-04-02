@@ -13,17 +13,21 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import os
+from dotenv import load_dotenv
 # from mongoengine import connect
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(os.path.join(BASE_DIR, ".env"))
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g*ueinbrebz1w%=^ybmx3*ve0snjg*=%v1%fufgai-pi2_e9ec'
+# SECRET_KEY = 'g*ueinbrebz1w%=^ybmx3*ve0snjg*=%v1%fufgai-pi2_e9ec'
+# SECRET_KEY = '97e8c58cae82047750d74da9b9b1130b15ed876aa29775b6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
