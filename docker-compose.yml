@@ -13,7 +13,7 @@ services:
     #   - ./data-db:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongo
-      MONGO_INITDB_ROOT_PASSWORD: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: PEl8B92GQ9Ztw7OkNOVm
       MONGO_INITDB_DATABASE: test
     ports:
       - 5624:5624
