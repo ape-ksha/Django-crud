@@ -13,26 +13,27 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 # from mongoengine import connect
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(os.path.join(BASE_DIR, ".env"))
-SECRET_KEY = os.getenv("SECRET_KEY")
+# load_dotenv(os.path.join(BASE_DIR, ".env"))
+# SECRET_KEY = os.getenv("SECRET_KEY")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'g*ueinbrebz1w%=^ybmx3*ve0snjg*=%v1%fufgai-pi2_e9ec'
-# SECRET_KEY = '97e8c58cae82047750d74da9b9b1130b15ed876aa29775b6'
+SECRET_KEY = '97e8c58cae82047750d74da9b9b1130b15ed876aa29775b6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-crud-production-4c05.up.railway.app','localhost',]
+# ALLOWED_HOSTS = ['django-crud-production-4c05.up.railway.app','localhost',]
+ALLOWED_HOSTS = ['django-crud-production-4c05.up.railway.app','localhost',os.environ.get("DJANGO_ALLOWED_HOSTS")]
 
 
 # Application definition
@@ -104,15 +105,28 @@ WSGI_APPLICATION = 'django_mongodb.wsgi.application'
 #     }
 
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': os.environ.get('DB_NAME', 'test'),
+#         'USER': os.environ.get('DB_USER', 'mongo'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD', 'PEl8B92GQ9Ztw7OkNOVm'),
+#         'HOST': os.environ.get('DB_HOST','mongodb://mongo:PEl8B92GQ9Ztw7OkNOVm@containers-us-west-180.railway.app:5624'),
+#     'authSource': 'admin',
+#        'authMechanism': 'SCRAM-SHA-1'}
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': os.environ.get('DB_NAME', 'test'),
-        'USER': os.environ.get('DB_USER', 'mongo'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'PEl8B92GQ9Ztw7OkNOVm'),
-        'HOST': os.environ.get('DB_HOST','mongodb://mongo:PEl8B92GQ9Ztw7OkNOVm@containers-us-west-180.railway.app:5624'),
-    'authSource': 'admin',
-       'authMechanism': 'SCRAM-SHA-1'}
+        'CLIENT': {
+            'host': os.getenv("DB_HOST"),
+            'username': os.getenv("DB_USERNAME"),
+            'password': os.getenv("DB_PASSWORD"),
+            'authSource': 'admin',
+            'authMechanism': 'SCRAM-SHA-1'
+        }
+    }
 }
 
 
