@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp',
     'rest_framework',
-    'djongo'
+    'djongo',
+    'django.contrib.migrations'
 ]
 
 MIDDLEWARE = [
