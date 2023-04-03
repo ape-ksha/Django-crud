@@ -1,3 +1,3 @@
-web: gunicorn 'Django-crud.wsgi'
+web: gunicorn 'Django-crud.wsgi' --log-file - 
 # env: MONGO_DB_NAME=shoplocator
 # env: MONGO_URI=mongodb://mongodb:27017
