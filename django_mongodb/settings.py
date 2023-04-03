@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-crud.up.railway.app',]
+ALLOWED_HOSTS = ['django-crud-production-4c05.up.railway.app','localhost',]
 
 
 # Application definition
@@ -168,7 +168,7 @@ STATICFILES_DIRS = [
 
 # connect(db=mongo_db_name, host=mongo_uri)
 
-CSRF_TRUSTED_ORIGINS = ["https://django-crud.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ['https://django-crud-production-4c05.up.railway.app']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
