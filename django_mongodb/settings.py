@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECRET_KEY = '97e8c58cae82047750d74da9b9b1130b15ed876aa29775b6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['django-crud.up.railway.app',]
 
