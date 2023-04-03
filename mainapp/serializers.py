@@ -1,6 +1,4 @@
-'''
-@Author: rishi
-'''
+
 
 from .models import Shop, User
 from rest_framework import serializers
