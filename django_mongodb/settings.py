@@ -168,7 +168,7 @@ STATICFILES_DIRS = [
 
 # connect(db=mongo_db_name, host=mongo_uri)
 
-CSRF_TRUSTED_ORIGINS = ["https://django-crud.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ['django-crud.up.railway.app',"https://django-crud.up.railway.app"]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
