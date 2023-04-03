@@ -90,19 +90,29 @@ WSGI_APPLICATION = 'django_mongodb.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'test',
+#         'CLIENT': {
+#             'host': 'mongodb://mongo:PEl8B92GQ9Ztw7OkNOVm@containers-us-west-180.railway.app:5624',
+#             'username': 'mongo',
+#             'password': 'PEl8B92GQ9Ztw7OkNOVm',
+#             'authSource': 'admin',
+#             'authMechanism': 'SCRAM-SHA-1',
+#         }
+#     }
+
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'test',
-        'CLIENT': {
-            'host': 'mongodb://mongo:PEl8B92GQ9Ztw7OkNOVm@containers-us-west-180.railway.app:5624',
-            'username': 'mongo',
-            'password': 'PEl8B92GQ9Ztw7OkNOVm',
-            'authSource': 'admin',
-            'authMechanism': 'SCRAM-SHA-1',
-        }
-    }
-
+        'NAME': os.environ.get('DB_NAME', 'test'),
+        'USER': os.environ.get('DB_USER', 'mongo'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'PEl8B92GQ9Ztw7OkNOVm'),
+        'HOST': os.environ.get('DB_HOST','mongodb://mongo:PEl8B92GQ9Ztw7OkNOVm@containers-us-west-180.railway.app:5624'),
+    'authSource': 'admin',
+       'authMechanism': 'SCRAM-SHA-1'}
 }
 
 
