@@ -22,13 +22,8 @@ First we need to create the db directory where the database files will live in. 
 ## Run
 Go to the project directory and run `python manage.py runserver`
 
-## Access REST API
-`/students` retrieves all student details  
-`/students/<id>` retrieves details of that particular student
 
-## Screenshot
-![CRUD](https://github.com/rishi772001/django-mongodb-crud/blob/main/screenshots/Capture.PNG)
----
-![REST API](https://github.com/rishi772001/django-mongodb-crud/blob/main/screenshots/Capture1.PNG)
+
+
 
 
