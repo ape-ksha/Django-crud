@@ -1,8 +1,8 @@
 version: '3.1'
 
-volumes:
-  init-db:
-  data-db:
+# volumes:
+#   init-db:
+#   data-db:
 
 services:
   mongodb:
@@ -23,7 +23,8 @@ services:
   web:
     image: app
     restart: always
-    command: python manage.py runserver 0.0.0.0:8000
+    # command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn django_mongodb.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/django_mongodb_docker
     ports:
