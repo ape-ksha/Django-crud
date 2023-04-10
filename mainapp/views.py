@@ -16,9 +16,12 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = SerializeUser
 
 
+
 def view(request):
     if request.method == 'GET':
         details = Shop.objects.all()
+        for x in details:
+            print(x)
         return render(request, 'mainapp/view.html', {"details": details})
     else:
         if request.POST['action'] == 'Update':
@@ -30,8 +33,9 @@ def view(request):
                 return HttpResponse("<script>alert('successfully updated');location.href = '/'</script>")
             else:
                 return HttpResponse("<script>alert('Something went wrong');location.href = '/'</script>")
+        
 
-        elif request.POST['action'] == 'Delete':
+        if request.POST['action'] == 'Delete':
             if(Shop.objects.filter(name=request.POST['name']).delete()[0]):
                 return HttpResponse("<script>alert('successfully deleted');location.href = '/'</script>")
             else:
@@ -44,11 +48,10 @@ def add(request):
 
         return render(request, 'mainapp/add.html')
     else:
-        # print("inside add else")
         s = Shop(name=request.POST['name'].replace(" ", "_"),
                            latitude=request.POST['latitude'],
                            longitude=request.POST['longitude'],
-                           address=request.POST['address'])
+                           address=request.POST['address'].replace(" ", ","))
         
         s.save()
         return HttpResponse("<script>alert('success');location.href = '/'</script>")
@@ -64,26 +67,16 @@ def add_user(request):
                            longitude=request.POST['longitude'],
                            distance=request.POST['distance'])
         entries = shops_within_distance(request)
-        # return HttpResponse("<script>alert('success');location.href = '/'</script>")
         return  render(request, 'mainapp/shops_within_distance.html', {'entries':entries, 'distance': request.POST['distance']})
 
 
-# from django.shortcuts import render
-# from django.db.models.functions import Acos, Cos, Radians, Sin
-# from django.db.models import FloatField, Value
-# from django.contrib.gis.db.models.functions import Distance
-# from .models import Shop
-
 def shops_within_distance(request):
-    # if request.method == 'POST':
     lat = float(request.POST['latitude'])
     lon = float(request.POST['longitude'])
     radius = float(request.POST['distance'])
     entries = []
     Shops = Shop.objects.all()
-    # for x in Shops:
-    #     print('for statement')
-    #     print(x)
+    
     for entry in Shops:
         lat2 = entry.latitude
         lon2 = entry.longitude

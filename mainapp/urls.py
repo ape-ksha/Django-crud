@@ -11,4 +11,6 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
      path('shops/near/<latitude>/<longitude>/<distance>/', shops_within_distance, name='shops_near'),
     path('', include(router.urls)),
+    path('shops/', include(router.urls)),
+     path('users/', include(router.urls)),
 ]
