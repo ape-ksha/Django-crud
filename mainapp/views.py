@@ -48,10 +48,10 @@ def add(request):
 
         return render(request, 'mainapp/add.html')
     else:
-        s = Shop(name=request.POST['name'].replace(" ", "_"),
+        s = Shop(name=request.POST['name'],
                            latitude=request.POST['latitude'],
                            longitude=request.POST['longitude'],
-                           address=request.POST['address'].replace(" ", ","))
+                           address=request.POST['address'])
         
         s.save()
         return HttpResponse("<script>alert('success');location.href = '/'</script>")
